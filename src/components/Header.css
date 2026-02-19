@@ -1,17 +1,18 @@
+/* ===== HEADER WRAPPER ===== */
 .header {
   width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #dcdcdc;
+  background: rgb(3, 3, 3);
+  
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  
 }
 
-/* unutrašnji sadržaj – full width, ali sa paddingom */
+/* ===== INNER LAYOUT ===== */
 .header-inner {
   width: 100%;
-  padding: 14px 32px;
+  padding: 14px 20px;
 
   display: flex;
   justify-content: space-between;
@@ -19,64 +20,145 @@
   box-sizing: border-box;
 }
 
+/* ===== LEFT SIDE ===== */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 124px;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #222;
-  text-decoration: none;
-  letter-spacing: -0.5px;
+.header-left .logo {
+  color: #f9f9f9;
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 900;
 }
 
+/* ===== NAVIGATION ===== */
 .nav {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .nav-link {
-  text-decoration: none;
-  color: #555;
+  color: #f9f9f9;
   font-size: 16px;
-  font-weight: 500;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.2s;
+  transition: color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.144);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 200;
+  transition: all 0.4s ease;
 }
 
 .nav-link:hover {
-  background: #f2f2f2;
-  color: #000;
+  color: #030303;
+  background-color: rgba(255, 255, 255, 0.24);
+  border: whitesmoke 1px solid;
+
 }
 
-.nav-link.active {
-  background: #222;
-  color: #fff;
-}
-
-.header-right {
+/* ===== SEARCH WRAPPER ===== */
+.search-wrapper {
   display: flex;
   align-items: center;
+  gap: 8px;
+  flex-shrink: 0; /* ⬅️ NE SME DA SE SABIJA */
+  margin-top: 0px;
 }
 
+/* ===== SEARCH INPUT ===== */
 .search-input {
-  padding: 9px 12px;
   width: 260px;
+  padding: 9px 12px;
   border: 1px solid #cfcfcf;
   border-radius: 8px;
   background: #fafafa;
   font-size: 15px;
-  transition: 0.2s;
+  transition: width 0.8s ease, opacity 0.3s ease, padding 0.3s ease;
   color: #000;
 }
 
-.search-input:focus {
-  background: #fff;
-  border-color: #888;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.10);
+/* ===== SEARCH ICON ===== */
+.search-toggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 0;
+  display: none; /* desktop */
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .search-toggle {
+    display: block;
+  }
+
+  .header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+
+  .search-toggle:focus,
+.search-toggle:focus-visible,
+.search-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+  .search-input {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: none;
+    pointer-events: none;
+  }
+
+  .search-input.open {
+    width: 250px;
+    max-width: 60vw; /* ⬅️ radi i na 320px */
+    opacity: 1;
+    padding: 8px 12px;
+    border: 1px solid #cfcfcf;
+    pointer-events: auto;
+  }
+}
+
+/* ===== ULTRA SMALL SCREENS (iPhone SE, 360px, 320px) ===== */
+@media (max-width: 618px) {
+  .header-inner {
+    flex-wrap: wrap; /* ⬅️ NAV IDE DOLE */
+    gap: 0px;
+    padding: 0;
+  }
+
+  .header-left {
+    width: 100%;
+    justify-content: space-between;
+    background-color: rgb(3, 3, 3);
+    padding: 20px 20px;
+    
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: right;
+    font-weight: 100px;
+  }
+
+  .search-wrapper {
+    margin-left: auto;
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(3, 3, 3);
+    padding: 10px 0;
+    border: 0;
+  }
+
+  .search-input.open {
+    max-width: 100%;
+  }
 }

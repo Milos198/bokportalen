@@ -29,7 +29,8 @@ export default function BookCard({ book }) {
       isFavorite(book.id) ? removeFavorite(book.id) : addFavorite(book);
     }}
   >
-    {isFavorite(book.id) ? "❤️" : "🤍"}
+    {isFavorite(book.id) ? "♥" : "♡"}
+
   </button>
 </div>
 

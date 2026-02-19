@@ -9,8 +9,45 @@
   margin-bottom: 16px;
 }
 
+/* ===== DEFAULT DESKTOP GRID ===== */
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/* ===== LARGE DESKTOP (više kolona) ===== */
+@media (min-width: 1400px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* ===== TABLET LANDSCAPE (1000–1399px) ===== */
+@media (max-width: 1399px) and (min-width: 1000px) {
+  .book-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== TABLET PORTRAIT (731–999px) ===== */
+@media (max-width: 999px) and (min-width: 731px) {
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== MOBILE LARGE (501–730px) ===== */
+@media (max-width: 730px) and (min-width: 501px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== MOBILE SMALL (0–500px) ===== */
+@media (max-width: 500px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
 }

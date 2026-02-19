@@ -8,18 +8,23 @@ import BookDetails from "./pages/BookDetails.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import "./index.css";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "category/:name", element: <Category /> },
+        { path: "book/:id", element: <BookDetails /> },
+        { path: "favorites", element: <Favorites /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/category/:name", element: <Category /> },
-      { path: "/book/:id", element: <BookDetails /> },
-      { path: "/favorites", element: <Favorites /> },
-    ],
-  },
-]);
+    basename: "/oppgave-4",
+  }
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />

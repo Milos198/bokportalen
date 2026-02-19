@@ -41,6 +41,7 @@ const [loading, setLoading] = useState(true);
       <p><strong>Downloads:</strong> {book.download_count}</p>
       <p><strong>Languages:</strong> {book.languages?.join(", ") || "No languages"}</p>
       <p><strong>Subjects:</strong> {book.subjects?.join(", ") || "No subjects"}</p>
+      <p><strong>Kategorija:</strong> {book.subjects?.join(", ")}</p>
 
 
       <a

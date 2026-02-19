@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import BookGrid from "../components/BookGrid";
+import HeroBooks from "../components/HeroBooks"; // ⬅️ dodato
+import CategoryMenu from "../components/CategoryMenu";
+
 
 export default function Home() {
   const { searchQuery } = useOutletContext();
@@ -32,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const url = searchQuery
       ? `https://gutendex.com/books?search=${searchQuery}`
-      : "https://gutendex.com/books";
+      : "https://gutendex.com/books?sort=downloads"; // ⬅️ trending po downloads
 
     fetchBooks(url);
   }, [searchQuery]);
@@ -44,11 +47,22 @@ export default function Home() {
 
       {!loading && !error && (
         <>
+          {/* ⬅️ HERO KARTICE SAMO KADA NEMA PRETRAGE */}
+          {!searchQuery && <HeroBooks books={books} />}
+           {!searchQuery && <CategoryMenu />}
+
+          {/* ⬅️ GRID — ako ima pretrage, prikazuje sve rezultate
+                 ako nema pretrage, preskače prve dve knjige */}
           <BookGrid
-            books={books}
-            title={searchQuery ? `Søkeresultater for "${searchQuery}"` : "Trending Books"}
+            books={searchQuery ? books : books.slice(2)}
+            title={
+              searchQuery
+                ? `Søkeresultater for "${searchQuery}"`
+                : "Trending Books"
+            }
           />
 
+          {/* PAGINACIJA */}
           <div style={{ marginTop: "20px", display: "flex", gap: "12px" }}>
             {prevPage && (
               <button onClick={() => fetchBooks(prevPage)}>Forrige</button>
