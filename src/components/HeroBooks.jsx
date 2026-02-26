@@ -15,6 +15,7 @@ export default function HeroBooks({ books }) {
           />
 
           <div className="hero-content">
+            <div className="hero-content-text">
             <h2>{book.title}</h2>
             <p className="hero-author">
               {book.authors?.[0]?.name || "Unknown author"}
@@ -23,10 +24,13 @@ export default function HeroBooks({ books }) {
             <p className="hero-description">
               {book.subjects?.[0] || "No description available"}
             </p>
+            </div>
+            <div className="hero-content-button">
 
             <Link to={`/book/${book.id}`} className="hero-button">
-              Detalji
+              Les mer...
             </Link>
+            </div>
           </div>
         </div>
       ))}

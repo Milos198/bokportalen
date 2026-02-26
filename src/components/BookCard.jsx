@@ -19,7 +19,8 @@ export default function BookCard({ book }) {
   <Link to={`/book/${book.id}`} className="book-card-link">
     <article className="book-card">
       <div className="book-card-image-wrapper">
-  <img src={cover} alt={title} className="book-card-image" />
+  <img src={cover} alt={title} className="book-card-image" loading="lazy" />
+
 
   <button
     className={`favorite-btn ${isFavorite(book.id) ? "active" : ""}`}

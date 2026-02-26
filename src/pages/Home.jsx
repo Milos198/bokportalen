@@ -20,7 +20,7 @@ export default function Home() {
       const res = await fetch(url);
       const data = await res.json();
 
-      setBooks(data.results);
+      setBooks(data.results.slice(0, 10));
       setNextPage(data.next);
       setPrevPage(data.previous);
       setError(null);
