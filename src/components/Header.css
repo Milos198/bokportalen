@@ -1,7 +1,7 @@
 /* ===== HEADER WRAPPER ===== */
 .header {
   width: 100%;
-  background: rgb(3, 3, 3);
+  background: rgb(11, 19, 36);
   
   position: sticky;
   top: 0;
@@ -12,7 +12,7 @@
 /* ===== INNER LAYOUT ===== */
 .header-inner {
   width: 100%;
-  padding: 14px 20px;
+  padding: 20px 20px;
 
   display: flex;
   justify-content: space-between;
@@ -29,9 +29,10 @@
 
 .header-left .logo {
   color: #f9f9f9;
-  font-size: 1.4rem;
-  margin: 0;
+  font-size: 2rem;
+  margin-right: 50px;
   font-weight: 900;
+  font-family: "Fondamento", cursive;
 }
 
 /* ===== NAVIGATION ===== */
@@ -41,10 +42,10 @@
 }
 
 .nav-link {
-  color: #f9f9f9;
+  color: #000000;
   font-size: 16px;
   transition: color 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.144);
+  background-color: rgb(255, 255, 255);
   padding: 6px 14px;
   border-radius: 8px;
   font-weight: 200;
@@ -52,9 +53,9 @@
 }
 
 .nav-link:hover {
-  color: #030303;
-  background-color: rgba(255, 255, 255, 0.24);
-  border: whitesmoke 1px solid;
+  color: #ffffff;
+  background-color: rgb(52, 71, 99);
+  
 
 }
 
@@ -90,9 +91,10 @@
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 768px) {
+@media (max-width: 869px) {
   .search-toggle {
     display: block;
+  
   }
 
   .header-left {
@@ -133,12 +135,17 @@
     flex-wrap: wrap; /* ⬅️ NAV IDE DOLE */
     gap: 0px;
     padding: 0;
+      background-color: transparent;
+  }
+
+  .header {
+    background-color: transparent;
   }
 
   .header-left {
     width: 100%;
-    justify-content: space-between;
-    background-color: rgb(3, 3, 3);
+    justify-content: right;
+    background-color: rgb(11, 19, 36);
     padding: 20px 20px;
     
   }
@@ -146,19 +153,57 @@
   .nav {
     width: 100%;
     justify-content: right;
-    font-weight: 100px;
+    font-weight: 400;
   }
 
   .search-wrapper {
     margin-left: auto;
     width: 100%;
     justify-content: center;
-    background-color: rgb(3, 3, 3);
+    background-color: transparent;
     padding: 10px 0;
     border: 0;
   }
 
   .search-input.open {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 462px) {
+  .header-left {
+    
+    background-color: rgb(11, 19, 36);
+    padding: 10px 20px;
+  }
+
+  .header-left .logo {
+    font-size: 1.5rem;
+    margin-right: 0px;
+  }
+   
+
+.nav {
+    gap: 12px;
+    font-size: 14px;
+    background-color: transparent;
+    padding: 10px 0;
+    width: 100%;
+    justify-content: right;
+    border: 0;
+}
+
+  .search-wrapper {
+    padding: 10px 0;
+    width: 100%;
+    background-color: transparent;
+    
+  }
+  
+  main {
+    
+     
+    
+    background-color: transparent;
   }
 }

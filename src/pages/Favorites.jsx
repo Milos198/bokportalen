@@ -16,7 +16,7 @@ export default function Favorites() {
  return (
   <div className="favorites-page">
     <h1 className="favorites-title">Dine favoritter</h1>
-    <BookGrid books={favorites} />
+    <BookGrid books={favorites} title="" />
   </div>
 );
 
