@@ -22,7 +22,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/oppgave-4",
+    basename: "/bokportalen",
   }
 );
 
